@@ -1,0 +1,16 @@
+{
+  "name": "serve-files",
+  "version": "1.0.0",
+  "description": "> THIS IS NOT INTENDED FOR USE IN PRODUCTION. It's only useful for small projects at home that can be backed by the filesystem.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.4"
+  }
+}
