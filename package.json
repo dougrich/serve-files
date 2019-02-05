@@ -4,13 +4,22 @@
   "description": "> THIS IS NOT INTENDED FOR USE IN PRODUCTION. It's only useful for small projects at home that can be backed by the filesystem.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --opts ./mocha.opts",
+    "devstart": "node ./src/index.js 8080 test"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
     "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.4"
+    "commander": "^2.19.0",
+    "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
+    "md5": "^2.2.1",
+    "supertest": "^3.4.2"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }
