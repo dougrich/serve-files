@@ -14,6 +14,8 @@ describe('simple input scenario', () => {
     etag = md5(content)
     fs.writeFileSync('test/index.html', content)
     fs.writeFileSync('test/test.txt', '1234')
+    fs.writeFileSync('test/example.sh', '#!/bin/bash\necho "/1234.html"')
+    fs.chmodSync('test/example.sh', 0777)
   }
 
   beforeEach(() => {
@@ -49,6 +51,14 @@ describe('simple input scenario', () => {
     expect($('input[name=test]').val()).to.equal('5432')
     expect($('form').attr('method')).to.equal('POST')
     expect($('form').attr('enctype')).to.equal('application/x-www-form-urlencoded')
+  })
+
+  it('executes bash files', async () => {
+    const req = await request(app)
+      .get('/example.sh')
+    
+    expect(req.status).to.equal(302)
+    expect(req.header['location']).to.equal('/1234.html')
   })
 
 })
