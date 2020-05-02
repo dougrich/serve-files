@@ -9,6 +9,11 @@ const shell = require('shelljs')
 function serveFactory({ directory }) {
   const app = express()
 
+  app.use((req, res, next) => {
+    console.log('INCOMING REQUEST')
+    next()
+  })
+
   app.use(bodyParser.urlencoded({ extended: true }))
 
   
